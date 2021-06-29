@@ -1,13 +1,17 @@
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ApplicationFrameComponent } from './shared/components/application-frame/application-frame.component';
-import { AuthorizationAPIKeyInterceptor } from './shared/interceptor/authorize.interceptor';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
     path: '',
+    pathMatch: 'full',
+    redirectTo: '/home'
+  },
+  {
+    path: 'home',
     component: ApplicationFrameComponent,
     children: [
       {
@@ -16,10 +20,12 @@ const routes: Routes = [
         redirectTo: '/home'
       },
       {
-        path: 'home',
-        loadChildren: ()=> import('./home/home.module').then(
-          module => module.HomeModule
-        )
+        path: '',
+        loadChildren: () => import('./home/home.module').then(module => module.HomeModule)
+      },
+      {
+        path: '',
+        loadChildren: () => import('./movies/movies.module').then(module => module.MoviesModule)
       }
     ]
   }
@@ -27,9 +33,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthorizationAPIKeyInterceptor }
-  ]
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ApplicationFrameComponent } from './components/application-frame/application-frame.component';
 
+import { ApplicationFrameComponent } from './components/application-frame/application-frame.component';
 import { HeaderNavigationComponent } from './components/header-navigation/header-navigation.component';
 
 @NgModule({
@@ -12,6 +13,7 @@ import { HeaderNavigationComponent } from './components/header-navigation/header
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     RouterModule
   ],
   exports: [
