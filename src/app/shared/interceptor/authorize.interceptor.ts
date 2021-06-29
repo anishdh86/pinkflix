@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpParams, HttpRequest } from '@angular/common/http';
 import { Observable } from "rxjs";
 
 @Injectable()
@@ -10,9 +10,9 @@ export class AuthorizationAPIKeyInterceptor implements HttpInterceptor {
   
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request.clone({
-      setHeaders: {
-        api_key: this.API_KEY
-      }
+      params: new HttpParams().set(
+        'api_key', this.API_KEY
+      )
     }))
   }
 }
