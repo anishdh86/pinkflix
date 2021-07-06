@@ -1,0 +1,4 @@
+<div *ngIf="mediaList | async as mediaList" class="d-flex">
+  <app-media-tile *ngFor="let media of mediaList" [media]="media">
+  </app-media-tile>
+</div>

@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
+import { ListResult } from '../../models/list-result.model';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,8 +14,8 @@ export class MoviesHttpService {
 
   constructor(private http: HttpClient) { }
 
-  getMoviesList(category: string): Observable<any> {
-    return this.http.get<any>(
+  getMoviesList(category: string): Observable<ListResult> {
+    return this.http.get<ListResult>(
       this.createDataURL(
         this.MOVIES,
         category

@@ -5,11 +5,15 @@ import { RouterModule } from '@angular/router';
 
 import { ApplicationFrameComponent } from './components/application-frame/application-frame.component';
 import { HeaderNavigationComponent } from './components/header-navigation/header-navigation.component';
+import { MediaTileComponent } from './components/media-tile/media-tile.component';
+import { MediaListComponent } from './components/media-list/media-list.component';
 
 @NgModule({
   declarations: [
     HeaderNavigationComponent,
-    ApplicationFrameComponent
+    ApplicationFrameComponent,
+    MediaTileComponent,
+    MediaListComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +22,9 @@ import { HeaderNavigationComponent } from './components/header-navigation/header
   ],
   exports: [
     HeaderNavigationComponent,
-    ApplicationFrameComponent
+    ApplicationFrameComponent,
+    MediaTileComponent,
+    MediaListComponent
   ]
 })
 export class SharedModule { }

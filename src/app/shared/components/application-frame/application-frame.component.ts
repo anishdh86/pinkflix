@@ -9,14 +9,9 @@ import { MoviesHttpService } from '../../services/movies/movies-http.service';
   styleUrls: ['./application-frame.component.scss']
 })
 export class ApplicationFrameComponent implements OnInit {
-  genres$: Observable<any>;
 
-  constructor(private moviesService: MoviesHttpService) {
-    this.genres$ = of(null);
-   }
+  constructor() {}
 
-  ngOnInit(): void {
-    this.genres$ = this.moviesService.getMoviesList('popular');
-  }
+  ngOnInit(): void {}
 
 }
