@@ -11,7 +11,7 @@ const routes: Routes = [
     redirectTo: '/home'
   },
   {
-    path: 'home',
+    path: '',
     component: ApplicationFrameComponent,
     children: [
       {
@@ -20,11 +20,12 @@ const routes: Routes = [
         redirectTo: '/home'
       },
       {
-        path: '',
+        path: 'home',
+        pathMatch: 'full',
         loadChildren: () => import('./home/home.module').then(module => module.HomeModule)
       },
       {
-        path: '',
+        path: 'movies',
         loadChildren: () => import('./movies/movies.module').then(module => module.MoviesModule)
       }
     ]
