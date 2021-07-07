@@ -1,3 +1,10 @@
-<div>
-  <app-media-list [mediaList]="topRated$"></app-media-list>
+<div class="p-4">
+  <h3 class="mb-3">Top rated</h3>
+  <app-media-list [listType]="'top_rated'"></app-media-list>
+
+  <h3 class="mb-3">Popular</h3>
+  <app-media-list [listType]="'popular'"></app-media-list>
+
+  <h3 class="mb-3">Upcoming</h3>
+  <app-media-list [listType]="'upcoming'"></app-media-list>
 </div>
