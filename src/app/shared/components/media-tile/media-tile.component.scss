@@ -1,0 +1,13 @@
+.media-tile {
+  border: 1px solid #f0f0f0;
+  border-radius: 5px;
+
+  &__poster {
+    max-width: 15rem;
+  }
+  &__info {
+    h4 {
+      font-size: 1rem;
+    } 
+  }
+}
