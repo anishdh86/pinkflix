@@ -1,4 +1,8 @@
-<div *ngIf="listResults$ | async as listResults" class="d-flex mb-4">
-  <app-media-tile *ngFor="let result of listResults" [media]="result">
-  </app-media-tile>
+<div *ngIf="listResults$ | async as listResults" 
+  class="media-list d-flex align-items-stretch justify-content-between mb-4">
+  {{ listResults | json }}
+  <ng-container *ngFor="let result of listResults.results; let i = index">
+    <app-media-tile *ngIf="i < 5" [media]="result">
+    </app-media-tile>
+  </ng-container>
 </div>
