@@ -1,9 +1,10 @@
 .media-tile {
   border: 1px solid #f0f0f0;
   border-radius: 5px;
+  width: 15rem;
 
   &__poster {
-    max-width: 15rem;
+    width: 100%;
   }
   &__info {
     h4 {
