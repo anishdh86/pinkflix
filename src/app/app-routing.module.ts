@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ApplicationFrameComponent } from './shared/components/application-frame/application-frame.component';
-import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
@@ -27,6 +26,10 @@ const routes: Routes = [
       {
         path: 'movies',
         loadChildren: () => import('./movies/movies.module').then(module => module.MoviesModule)
+      },
+      {
+        path: 'tv',
+        loadChildren: () => import('./tv/tv.module').then(module => module.TvModule)
       }
     ]
   }
