@@ -3,39 +3,43 @@
 
   <div class="d-flex justify-content-between align-items-center">
     <h4 class="mb-3">Popular right now</h4>
-    <a>See all</a>
+    <a [routerLink]="'../movies'">See all</a>
   </div>
   <app-media-list 
     [mediaListType]="'movie'" 
-    [mediaCategory]="'popular'">
+    [mediaCategory]="'popular'"
+    [resultsCount]="5">
   </app-media-list>
 
   <div class="d-flex justify-content-between align-items-center">
     <h4 class="mb-3">Upcoming</h4>
-    <a>See all</a>
+    <a [routerLink]="'../movies'">See all</a>
   </div>
   <app-media-list 
     [mediaListType]="'movie'" 
-    [mediaCategory]="'upcoming'">
+    [mediaCategory]="'upcoming'"
+    [resultsCount]="5">
   </app-media-list>
 
   <h2>TV</h2>
 
   <div class="d-flex justify-content-between align-items-center">
     <h4 class="mb-3">Popular right now</h4>
-    <a>See all</a>
+    <a [routerLink]="'../tv'">See all</a>
   </div>
   <app-media-list 
     [mediaListType]="'tv'" 
-    [mediaCategory]="'popular'">
+    [mediaCategory]="'popular'"
+    [resultsCount]="5">
   </app-media-list>
 
   <div class="d-flex justify-content-between align-items-center">
     <h4 class="mb-3">Currently airing</h4>
-    <a>See all</a>
+    <a [routerLink]="'../tv'">See all</a>
   </div>
   <app-media-list 
     [mediaListType]="'tv'" 
-    [mediaCategory]="'airing_today'">
+    [mediaCategory]="'airing_today'"
+    [resultsCount]="5">
   </app-media-list>
 </div>

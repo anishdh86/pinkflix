@@ -14,6 +14,7 @@ export class MediaListComponent<T>
   
     @Input() mediaListType: string;
     @Input() mediaCategory: string;
+    @Input() resultsCount: number;
   
     constructor(mediaService: MediaHttpService) {
       super(mediaService)
