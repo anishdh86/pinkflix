@@ -13,11 +13,11 @@ export class MediaHttpService {
 
   constructor(private http: HttpClient) { }
 
-  getMediaList(
+  getMediaList<T>(
     listType: string,
     category: string
-  ): Observable<ListResult> {
-    return this.http.get<ListResult>(
+  ): Observable<ListResult<T>> {
+    return this.http.get<ListResult<T>>(
       this.createDataURL(
         listType,
         category

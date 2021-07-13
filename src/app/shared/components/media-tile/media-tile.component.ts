@@ -9,11 +9,9 @@ import { Movie } from '../../models/movie.model';
 export class MediaTileComponent {
   private readonly IMAGE_PATH = 'http://image.tmdb.org/t/p/w500';
 
-  @Input() media: Movie;
+  @Input() media: any;
 
-  constructor() { 
-    this.media = null as unknown as Movie;
-  }
+  constructor() {}
 
   createMediaImageURL(mediaPath: string): string {
     return [

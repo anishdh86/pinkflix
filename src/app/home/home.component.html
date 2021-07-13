@@ -1,19 +1,41 @@
 <div class="p-4">
-  <div class="d-flex justify-content-between align-items-center">
-    <h3 class="mb-3">Top rated</h3>
-    <a>See all</a>
-  </div>
-  <app-media-list [listType]="'movie'" [category]="'top_rated'"></app-media-list>
+  <h2>Movies</h2>
 
   <div class="d-flex justify-content-between align-items-center">
-    <h3 class="mb-3">Popular</h3>
+    <h4 class="mb-3">Popular right now</h4>
     <a>See all</a>
   </div>
-  <app-media-list [listType]="'movie'" [category]="'popular'"></app-media-list>
+  <app-media-list 
+    [mediaListType]="'movie'" 
+    [mediaCategory]="'popular'">
+  </app-media-list>
 
   <div class="d-flex justify-content-between align-items-center">
-    <h3 class="mb-3">Upcoming</h3>
+    <h4 class="mb-3">Upcoming</h4>
     <a>See all</a>
   </div>
-  <app-media-list [listType]="'movie'" [category]="'upcoming'"></app-media-list>
+  <app-media-list 
+    [mediaListType]="'movie'" 
+    [mediaCategory]="'upcoming'">
+  </app-media-list>
+
+  <h2>TV</h2>
+
+  <div class="d-flex justify-content-between align-items-center">
+    <h4 class="mb-3">Popular right now</h4>
+    <a>See all</a>
+  </div>
+  <app-media-list 
+    [mediaListType]="'tv'" 
+    [mediaCategory]="'popular'">
+  </app-media-list>
+
+  <div class="d-flex justify-content-between align-items-center">
+    <h4 class="mb-3">Currently airing</h4>
+    <a>See all</a>
+  </div>
+  <app-media-list 
+    [mediaListType]="'tv'" 
+    [mediaCategory]="'airing_today'">
+  </app-media-list>
 </div>
