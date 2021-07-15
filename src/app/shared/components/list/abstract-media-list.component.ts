@@ -31,4 +31,8 @@ export abstract class AbstractMediaListComponent<T> implements OnInit {
     return this._listContent$;
   }
 
+  public get listResults$(): Observable<ListResult<T>> {
+    return this._listResults$;
+  }
+
 }

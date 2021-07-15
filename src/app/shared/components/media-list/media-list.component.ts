@@ -15,6 +15,7 @@ export class MediaListComponent<T>
     @Input() mediaListType: string;
     @Input() mediaCategory: string;
     @Input() resultsCount: number;
+    @Input() shouldShowPaging: boolean;
   
     constructor(mediaService: MediaHttpService) {
       super(mediaService)

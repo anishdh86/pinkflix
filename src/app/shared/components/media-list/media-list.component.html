@@ -5,3 +5,9 @@
     </app-media-tile>
   </ng-container>
 </div>
+<div *ngIf="listResults$ | async as listResults">
+  <app-pagination 
+    [shouldShowPaging]="shouldShowPaging"
+    [listResult]="listResults">
+  </app-pagination>
+</div>
