@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -15,13 +15,17 @@ export class MediaHttpService {
 
   getMediaList<T>(
     listType: string,
-    category: string
+    category: string,
+    page: string
   ): Observable<ListResult<T>> {
     return this.http.get<ListResult<T>>(
       this.createDataURL(
         listType,
         category
-      )
+      ),
+      {
+        params: new HttpParams().append('page', page)
+      }
     )
   }
 

@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 
 import { ListResult } from '../../models/list-result.model';
@@ -8,23 +9,39 @@ import { MediaHttpService } from '../../services/movies/media-http.service';
 @Component({
   template: ''
 })
-export abstract class AbstractMediaListComponent<T> implements OnInit {
+export abstract class AbstractMediaListComponent<T> implements OnInit, OnDestroy {
   abstract get category(): string;
   abstract get listType(): string;
 
   _listResults$: Observable<ListResult<T>>;
   _listContent$: Observable<T[]>;
 
-  constructor(private mediaService: MediaHttpService) { }
+  private mediaSubscription: Subscription;  
+
+  constructor(
+    private mediaService: MediaHttpService,
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
-    this._listResults$ = this.mediaService.getMediaList(
-      this.listType,
-      this.category
-    );
-    this._listContent$ = this._listResults$.pipe(
-      pluck('results')
-    )
+    this.mediaSubscription = this.activatedRoute.queryParamMap
+      .subscribe(param => {
+        const pageNumber: string = param.get('page')!;
+
+        this._listResults$ = this.mediaService.getMediaList(
+          this.listType,
+          this.category,
+          pageNumber
+        );
+
+        this._listContent$ = this._listResults$.pipe(
+          pluck('results')
+        )
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.mediaSubscription.unsubscribe();
   }
 
   public get listContent$(): Observable<T[]> {

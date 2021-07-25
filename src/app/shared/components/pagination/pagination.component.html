@@ -3,6 +3,9 @@
   [collectionSize]="listResult.total_results" 
   [page]="currentPage"
   [maxSize]="10"
+  [boundaryLinks]="true"
+  [ellipses]="false"
+  [rotate]="true"
   [pageSize]="pageSize"
   (pageChange)="onPageChange($event)">
 </ngb-pagination>

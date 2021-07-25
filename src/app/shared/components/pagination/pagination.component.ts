@@ -10,20 +10,34 @@ import { PaginationService } from '../../services/pagination/pagination.service'
   styleUrls: ['./pagination.component.scss']
 })
 export class PaginationComponent<T> implements OnInit {
-  currentPage = 1
-  pageSize = 20;
+  private _listResult: ListResult<T>;
+
+  currentPage = 1;
+  pageSize: number;
   
-  @Input() listResult: ListResult<T>;
   @Input() shouldShowPaging: boolean;
-
+  
   constructor(private paginationService: PaginationService) { }
-
+  
   ngOnInit(): void {
   }
 
+  @Input() 
+  set listResult(listResult: ListResult<T>) {
+    this._listResult = listResult;
+    this.currentPage = listResult.page;
+    this.pageSize = (
+      this.listResult.total_results / this.listResult.total_pages
+    );
+  }
+
+  get listResult(): ListResult<T> {
+    return this._listResult;
+  }
+  
   onPageChange(page: number): void {
     this.currentPage = page;
-    this.paginationService.applyPaging(page);
+    this.paginationService.applyPaging(this.currentPage);
   }
 
 }

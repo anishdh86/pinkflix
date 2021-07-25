@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { MediaHttpService } from '../../services/movies/media-http.service';
 import { AbstractMediaListComponent } from '../list/abstract-media-list.component';
@@ -17,8 +18,14 @@ export class MediaListComponent<T>
     @Input() resultsCount: number;
     @Input() shouldShowPaging: boolean;
   
-    constructor(mediaService: MediaHttpService) {
-      super(mediaService)
+    constructor(
+      mediaService: MediaHttpService,
+      activatedRoute: ActivatedRoute
+    ) {
+      super(
+        mediaService,
+        activatedRoute
+      )
      }
   
     ngOnInit(): void {

@@ -5,7 +5,8 @@
     </app-media-tile>
   </ng-container>
 </div>
-<div *ngIf="listResults$ | async as listResults">
+<div *ngIf="listResults$ | async as listResults"
+  class="d-flex justify-content-center">
   <app-pagination 
     [shouldShowPaging]="shouldShowPaging"
     [listResult]="listResults">

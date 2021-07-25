@@ -10,7 +10,7 @@ export class AuthorizationAPIKeyInterceptor implements HttpInterceptor {
   
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request.clone({
-      params: new HttpParams().set(
+      params: request.params.append(
         'api_key', this.API_KEY
       )
     }))
