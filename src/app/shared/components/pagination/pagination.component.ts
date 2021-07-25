@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ListResult } from '../../models/list-result.model';
-import { Pagination } from '../../models/pagination.model';
 
+import { ListResult } from '../../models/list-result.model';
 import { PaginationService } from '../../services/pagination/pagination.service';
 
 @Component({
